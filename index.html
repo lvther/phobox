@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图箱 -- 个人云图库</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./lib/iconfont/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div class="top-bar-nav">
+        <form action="" id="top-seo">
+            <input type="text" name="name" value="" id="search-text" autocomplete="off" placeholder="直接输入作者名">
+            <button id="search-btn">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+        <!-- 网页logo -->
+        <img class="top-logo" src="./img/title-logo.png">
+        <!-- 头部右侧横线 -->
+        <div id="app-line">
+            <a href="javascript:;" id="help"><i class="fa fa-question-circle" ></i></a>
+        
+        </div>
+    </div>
+
+    <div id="quiz">
+        <div style="padding: 10px;">
+            使用帮助：
+            <br>
+            1.本站是一个个人云图库，不定期上传自己在网上搜集到的图片,
+            功能并不复杂，仅提供图片导览的功能。
+            <br>
+            2.左侧提供了两种图片筛选模式，可以通过搜索作者名或着标签分类
+            来检索想要的图片。
+            <br>
+            3.每个图片有两个作者名属性，意味着您可以通过汉字或者拼音检索中文作者，
+            也可以通过假名或者罗马音检索日本作者，但欧美系作者均采用英文字母。
+            注意凡是用到字母的地方一律小写。
+            <br>
+            4.每个图片有六个标签，通过六个不同类别的标签，可以比较准确的描述一幅
+            图片的特征，并方便用来检索。注意，在采用标签检索时，将不能同时使用作者检索
+            <br>
+            5.本站未提供下载功能，您可以右击图片，通过“新标签页打开图片”等类似方法，
+            然后来右键保存原图。
+        </div>
+    </div>
+
+    <!-- 中部 -->
+    <div class="center-shell">
+        <!-- 中部区域左侧图片选择栏 -->
+        <div class="left-bar-nav">
+            <form action="" id="left-form">
+                <ul class="left-nav-box">
+                    <li class="left-nav-content">
+                        <span class="left-nav-icon" id="cha1">图</span>
+                        <div class="left-form-content" id="xun1">
+                            <select name="basetag" id="" class="left-select">
+                                <option value="人像">人像</option>
+                                <option value="风景">风景</option>
+                                <option value="场景">场景</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="left-nav-content">
+                        <span class="left-nav-icon" id="cha2">片</span>
+                        <div class="left-form-content" id="xun2">
+                            <select name="grouptag" id="" class="left-select">
+                                <option value="少女">少女</option>
+                                <option value="兽娘">兽娘</option>
+                                <option value="机甲">机甲</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="left-nav-content">
+                        <span class="left-nav-icon" id="cha3">选</span>
+                        <div class="left-form-content" id="xun3">
+                            <select name="linktag" id="" class="left-select">
+                                <option value="原创">原创</option>
+                                <option value="游戏">游戏</option>
+                                <option value="动漫">动漫</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="left-nav-content">
+                        <span class="left-nav-icon" id="cha4">择</span>
+                        <div class="left-form-content" id="xun4">
+                            <select name="itemtag" id="" class="left-select">
+                                <option value="立绘">立绘</option>
+                                <option value="音乐">音乐</option>
+                                <option value="天空">天空</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="left-nav-content">
+                        <span class="left-nav-icon" id="cha5">查</span>
+                        <div class="left-form-content" id="xun5">
+                            <select name="emotag" id="" class="left-select">
+                                <option value="笑容">笑容</option>
+                                <option value="流泪">流泪</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="left-nav-content">
+                        <span class="left-nav-icon" id="cha6">询</span>
+                        <div class="left-form-content" id="xun6">
+                            <select name="extratag" id="" class="left-select">
+                                <option value="短发">黑发</option>
+                                <option value="短发">短发</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+
+                <button id="left-form-btn">
+                    <i class="fa fa-check"></i>
+                </button>
+            </form>
+        </div>
+
+        <!-- 中部区域主体内容 -->
+        <div class="center-content">
+            <ul id="img-list">
+            </ul>
+        </div>
+
+        <!-- 中部区域右侧栏 -->
+        <div class="right-line">
+            <div class="right-nav">
+                <a href="#"><i class="fas fa-arrow-up"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 底部 -->
+    <div class="bottom-nav">
+        欢迎加入群交流
+    </div>
+</body>
+<!-- 页面主题卡片模板引擎 -->
+<script type="text/html" id="pholist">
+    {{each data}}
+    <li class="content-card">
+        <div class="img-box">
+            <img src="./imgsource/{{$value.path}}" alt="{{$value.linktag}}">
+        </div>
+        <div class="img-info">
+            {{$value.country}}&nbsp;{{$value.name}}
+        </div>
+    </li>
+    {{/each}}
+</script>
+
+
+<!-- 导入jquery -->
+<script src="./lib/jquery-3.6.0.js"></script>
+<!-- 导入主页的样式控制js -->
+<script src="./js/indexCSS.js"></script>
+<!-- 导入baseAPI -->
+<script src="./js/baseAPI.js"></script>
+<!-- 导入模板引擎 -->
+<script src="./lib/template-web.js"></script>
+<!-- 导入自己的js -->
+<script src="./js/index.js"></script>
+
+</html>
