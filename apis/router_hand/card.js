@@ -4,6 +4,7 @@
 // 导入数据库模块
 const db = require('../db/index')
 
+var pager={page:0,maxnum:0,pagesize:0,total:0}
 // 默认获取图片列表数据
 exports.getPhoList = function (req, res) {
 
@@ -14,10 +15,25 @@ exports.getPhoList = function (req, res) {
     db.query(sql, function (err, results) {
         if (err) return res.cc(err)
 
+        // 当前页码
+        pager.page=req.body.page
+        // 总共查询到的记录
+        pager.maxnum=results.length
+        // 每页显示的记录数
+        pager.pagesize=2
+        // 一共有多少页
+        pager.total=Math.ceil(pager.maxnum/pager.pagesize)
+
+        // 将查询的结果进行切片
+        let startindex=(pager.page-1)*pager.pagesize
+        var datalist=results.splice(startindex,pager.pagesize)
+
+
         res.send({
             status: 0,
             message: '获取图片列表成功!',
-            data: results,
+            data: datalist,
+            varpage:pager,
         })
     })
 }
@@ -25,15 +41,32 @@ exports.getPhoList = function (req, res) {
 
 // 根据左侧列表选项获取表单数据
 exports.getListByParams = function (req, res) {
+
+    console.log(req.body);
+
     const sql = 'select * from phobox where linktag =? order by pid desc'
 
     db.query(sql, [req.body.linktag], function (err, results) {
         if (err) return res.cc(err)
 
+        // 当前页码
+        pager.page=req.body.page
+        // 总共查询到的记录
+        pager.maxnum=results.length
+        // 每页显示的记录数
+        pager.pagesize=2
+        // 一共有多少页
+        pager.total=Math.ceil(pager.maxnum/pager.pagesize)
+
+        // 将查询的结果进行切片
+        let startindex=(pager.page-1)*pager.pagesize
+        var datalist=results.splice(startindex,pager.pagesize)
+
         res.send({
             status: 0,
             message: '查询图片列表成功!',
-            data: results,
+            data: datalist,
+            varpage:pager,
         })
     })
 }
@@ -43,15 +76,28 @@ exports.getListByParams = function (req, res) {
 exports.getListByName = function (req, res) {
     const sql = 'select * from phobox where name =? or extraname =? order by pid desc'
 
-    console.log(req.body);
 
-    db.query(sql, [req.body.name,req.body.name], function (err, results) {
+    db.query(sql, [req.body.name, req.body.name], function (err, results) {
         if (err) return res.cc(err)
 
+        // 当前页码
+        pager.page=req.body.page
+        // 总共查询到的记录
+        pager.maxnum=results.length
+        // 每页显示的记录数
+        pager.pagesize=2
+        // 一共有多少页
+        pager.total=Math.ceil(pager.maxnum/pager.pagesize)
+
+        // 将查询的结果进行切片
+        let startindex=(pager.page-1)*pager.pagesize
+        var datalist=results.splice(startindex,pager.pagesize)
+
         res.send({
-            status:0,
-            message:'查询作者图片成功!',
-            data:results,
+            status: 0,
+            message: '查询作者图片成功!',
+            data: datalist,
+            varpage:pager,
         })
     })
 }

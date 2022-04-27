@@ -15,7 +15,7 @@
 <body>
     <!-- 头部 -->
     <div class="top-bar-nav">
-        <form action="" id="top-seo">
+        <form action="" id="top-seo" method="post">
             <input type="text" name="name" value="" id="search-text" autocomplete="off" placeholder="直接输入作者名">
             <button id="search-btn">
                 <i class="fa fa-search"></i>
@@ -25,8 +25,8 @@
         <img class="top-logo" src="./img/title-logo.png">
         <!-- 头部右侧横线 -->
         <div id="app-line">
-            <a href="javascript:;" id="help"><i class="fa fa-question-circle" ></i></a>
-        
+            <a href="javascript:;" id="help"><i class="fa fa-question-circle"></i></a>
+
         </div>
     </div>
 
@@ -56,12 +56,13 @@
     <div class="center-shell">
         <!-- 中部区域左侧图片选择栏 -->
         <div class="left-bar-nav">
-            <form action="" id="left-form">
+            <form action="" id="left-form" method="post">
                 <ul class="left-nav-box">
                     <li class="left-nav-content">
                         <span class="left-nav-icon" id="cha1">图</span>
                         <div class="left-form-content" id="xun1">
                             <select name="basetag" id="" class="left-select">
+                                <!-- <option value="1">所有</option> -->
                                 <option value="人像">人像</option>
                                 <option value="风景">风景</option>
                                 <option value="场景">场景</option>
@@ -72,6 +73,7 @@
                         <span class="left-nav-icon" id="cha2">片</span>
                         <div class="left-form-content" id="xun2">
                             <select name="grouptag" id="" class="left-select">
+                                <!-- <option value="1">所有</option> -->
                                 <option value="少女">少女</option>
                                 <option value="兽娘">兽娘</option>
                                 <option value="机甲">机甲</option>
@@ -82,6 +84,7 @@
                         <span class="left-nav-icon" id="cha3">选</span>
                         <div class="left-form-content" id="xun3">
                             <select name="linktag" id="" class="left-select">
+                                <!-- <option value="1">所有</option> -->
                                 <option value="原创">原创</option>
                                 <option value="游戏">游戏</option>
                                 <option value="动漫">动漫</option>
@@ -92,6 +95,7 @@
                         <span class="left-nav-icon" id="cha4">择</span>
                         <div class="left-form-content" id="xun4">
                             <select name="itemtag" id="" class="left-select">
+                                <!-- <option value="1">所有</option> -->
                                 <option value="立绘">立绘</option>
                                 <option value="音乐">音乐</option>
                                 <option value="天空">天空</option>
@@ -102,6 +106,7 @@
                         <span class="left-nav-icon" id="cha5">查</span>
                         <div class="left-form-content" id="xun5">
                             <select name="emotag" id="" class="left-select">
+                                <!-- <option value="1">所有</option> -->
                                 <option value="笑容">笑容</option>
                                 <option value="流泪">流泪</option>
                             </select>
@@ -111,6 +116,7 @@
                         <span class="left-nav-icon" id="cha6">询</span>
                         <div class="left-form-content" id="xun6">
                             <select name="extratag" id="" class="left-select">
+                                <!-- <option value="1">所有</option> -->
                                 <option value="短发">黑发</option>
                                 <option value="短发">短发</option>
                             </select>
@@ -132,6 +138,19 @@
 
         <!-- 中部区域右侧栏 -->
         <div class="right-line">
+
+            <div class="varpage-div">
+                    <div class="pagebtn" id="prepage">
+                        <a href="javascript:;"><i class="fa fa-angle-double-up"></i></a>
+                    </div>
+
+                    <div id="pageinfo">1/10</div>
+
+                    <div class="pagebtn" id="nextpage">
+                        <a href="javascript:;"><i class="fa fa-angle-double-down"></i></a>
+                    </div>
+            </div>
+
             <div class="right-nav">
                 <a href="#"><i class="fas fa-arrow-up"></i></a>
             </div>

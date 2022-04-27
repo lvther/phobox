@@ -234,6 +234,67 @@ select {
 }
 
 /* 右部区域 */
+
+.varpage-div{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 50px;
+    height: 150px;
+    background-color: #fff;
+    border-radius: 50px;
+    z-index: 3;
+    right: 45px;
+    top: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    opacity: 0.8;
+}
+
+#pageinfo{
+    text-align: center;
+    line-height: 25px;
+    width: 45px;
+    height: 25px;
+}
+
+.pagebtn{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 3px;
+    background-color: #b1eaff;
+    user-select: none;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.pagebtn a{
+    width: 42px;
+    height: 42px;
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    border-radius: 50%;
+}
+
+.pagebtn i{
+    margin-top: 5px;
+    font-size: 28px;
+}
+
+.pagebtn:hover a{
+    background-color: #05bcff;
+    color: #b1eaff;
+}
+
+.pagebtn:active {
+    background-color: #257c9c;
+}
+
 .right-nav {
     position: fixed;
     width: 50px;

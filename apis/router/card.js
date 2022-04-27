@@ -9,7 +9,7 @@ const router=express.Router()
 // 导入卡片列表的路由处理函数模块
 const pholist_hand=require('../router_hand/card')
 // 获取卡片列表的路由
-router.get('/pholist',pholist_hand.getPhoList)
+router.post('/pholist',pholist_hand.getPhoList)
 
 // 根据查询参数获取图片列表
 router.post('/phoitem',pholist_hand.getListByParams)
