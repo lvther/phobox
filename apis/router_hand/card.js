@@ -7,7 +7,7 @@ const db = require('../db/index')
 var pager = {
     page: 0,
     maxnum: 0,
-    pagesize: 0,
+    pagesize: 36,
     total: 0
 }
 // 默认获取图片列表数据
@@ -24,8 +24,6 @@ exports.getPhoList = function (req, res) {
         pager.page = req.body.page
         // 总共查询到的记录
         pager.maxnum = results.length
-        // 每页显示的记录数
-        pager.pagesize = 2
         // 一共有多少页
         pager.total = Math.ceil(pager.maxnum / pager.pagesize)
 
@@ -56,8 +54,6 @@ exports.getListByParams = function (req, res) {
         pager.page = req.body.page
         // 总共查询到的记录
         pager.maxnum = results.length
-        // 每页显示的记录数
-        pager.pagesize = 2
         // 一共有多少页
         pager.total = Math.ceil(pager.maxnum / pager.pagesize)
 
@@ -87,8 +83,6 @@ exports.getListByName = function (req, res) {
         pager.page = req.body.page
         // 总共查询到的记录
         pager.maxnum = results.length
-        // 每页显示的记录数
-        pager.pagesize = 2
         // 一共有多少页
         pager.total = Math.ceil(pager.maxnum / pager.pagesize)
 
