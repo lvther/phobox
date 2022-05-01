@@ -16,5 +16,8 @@ router.post('/phoitem',pholist_hand.getListByParams)
 
 router.post('/author',pholist_hand.getListByName)
 
+router.get('/taglist',pholist_hand.getTagLst)
+
+router.get('/maintag',pholist_hand.getMainTag)
 // 向外暴露共享路由对象
 module.exports=router

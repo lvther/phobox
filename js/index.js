@@ -5,6 +5,9 @@ $(function () {
     var pager = {
         page: 1
     }
+
+    initLeftForm()
+
     initPhoList()
 
     // 根据顶部搜索框获取图片
@@ -132,6 +135,38 @@ $(function () {
 
                 $('#img-list').html(htmlStr);
                 $('#pageinfo').html(res.varpage.page + "/" + res.varpage.total);
+            }
+        });
+    }
+
+
+    function initLeftForm(){
+
+        $.ajax({
+            type: "GET",
+            url: "/api/maintag",
+            success: function (res) {
+                var basetext = template('base', res)
+                var linktext = template('link', res)
+
+                $('#basetag').html(basetext);
+                $('#linktag').html(linktext);
+            }
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "/api/taglist",
+            success: function (res) {
+                var grouptext = template('group', res)
+                var itemtext = template('item', res)
+                var emotext = template('emo', res)
+                var extratext = template('extra', res)
+
+                $('#grouptag').html(grouptext);
+                $('#itemtag').html(itemtext);
+                $('#emotag').html(emotext);
+                $('#extratag').html(extratext);
             }
         });
     }

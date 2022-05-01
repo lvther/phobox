@@ -62,9 +62,6 @@
                         <span class="left-nav-icon" id="cha1">图</span>
                         <div class="left-form-content" id="xun1">
                             <select name="basetag" id="basetag" class="left-select">
-                                <option value="人像">人像</option>
-                                <option value="风景">风景</option>
-                                <option value="场景">场景</option>
                             </select>
                         </div>
                     </li>
@@ -72,9 +69,6 @@
                         <span class="left-nav-icon" id="cha2">片</span>
                         <div class="left-form-content" id="xun2">
                             <select name="grouptag" id="grouptag" class="left-select">
-                                <option value="少女">少女</option>
-                                <option value="兽娘">兽娘</option>
-                                <option value="机甲">机甲</option>
                             </select>
                         </div>
                     </li>
@@ -82,9 +76,6 @@
                         <span class="left-nav-icon" id="cha3">选</span>
                         <div class="left-form-content" id="xun3">
                             <select name="linktag" id="linktag" class="left-select">
-                                <option value="原创">原创</option>
-                                <option value="游戏">游戏</option>
-                                <option value="动漫">动漫</option>
                             </select>
                         </div>
                     </li>
@@ -92,9 +83,6 @@
                         <span class="left-nav-icon" id="cha4">择</span>
                         <div class="left-form-content" id="xun4">
                             <select name="itemtag" id="itemtag" class="left-select">
-                                <option value="立绘">立绘</option>
-                                <option value="音乐">音乐</option>
-                                <option value="天空">天空</option>
                             </select>
                         </div>
                     </li>
@@ -102,8 +90,6 @@
                         <span class="left-nav-icon" id="cha5">查</span>
                         <div class="left-form-content" id="xun5">
                             <select name="emotag" id="emotag" class="left-select">
-                                <option value="笑容">笑容</option>
-                                <option value="流泪">流泪</option>
                             </select>
                         </div>
                     </li>
@@ -111,8 +97,6 @@
                         <span class="left-nav-icon" id="cha6">询</span>
                         <div class="left-form-content" id="xun6">
                             <select name="extratag" id="extratag" class="left-select">
-                                <option value="短发">黑发</option>
-                                <option value="短发">短发</option>
                             </select>
                         </div>
                     </li>
@@ -171,6 +155,42 @@
     {{/each}}
 </script>
 
+<!-- 制作左侧查询表单 -->
+<script type="text/html" id="base">
+    {{each data}}
+    <option value="{{$value.basetag}}">{{$value.basetag}}</option>
+    {{/each}}
+</script>
+
+<script type="text/html" id="link">
+    {{each data}}
+    <option value="{{$value.linktag}}">{{$value.linktag}}</option>
+    {{/each}}
+</script>
+
+<script type="text/html" id="group">
+    {{each data}}
+    <option value="{{$value.grouptag}}">{{$value.grouptag}}</option>
+    {{/each}}
+</script>
+
+<script type="text/html" id="item">
+    {{each data}}
+    <option value="{{$value.itemtag}}">{{$value.itemtag}}</option>
+    {{/each}}
+</script>
+
+<script type="text/html" id="emo">
+    {{each data}}
+    <option value="{{$value.emotag}}">{{$value.emotag}}</option>
+    {{/each}}
+</script>
+
+<script type="text/html" id="extra">
+    {{each data}}
+    <option value="{{$value.extratag}}">{{$value.extratag}}</option>
+    {{/each}}
+</script>
 
 <!-- 导入jquery -->
 <script src="./lib/jquery-3.6.0.js"></script>
